@@ -254,6 +254,165 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.yimou.me/2016/12/10/opencv/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Yi Mou">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Yi Mou">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Yi Mou" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/10/opencv/" itemprop="url">
+                  Try out Opencv and some notes
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T18:18:30+08:00">
+                2016-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Quantitative-Analysis/" itemprop="url" rel="index">
+                    <span itemprop="name">Quantitative Analysis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Environment:</strong> Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)</p>
+<p>I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes up(unlikely).</p>
+<p>I used Opencv once I was a undergraduate in the class of Computer Graphics. I think it is kind of a tradition that Professor Liu introduced Lena as the standard processing image to us. I saw a news a while ago that Lena is actually a senior lady now.</p>
+<p>Anyway…</p>
+<p>I start with display an image with opencv. The error I occured is the Escape Character. The name of the image is a1003366.jpg in a subfolder, so I put “....\a.jpg” as the parameter. It gives error. I switched to another picture, HKnight.jpg which I took last year in a night of Hong Kong. It worked well. I thought it might be the problem of the image size, may be the size of the a1003366.jpg is too large. And I start looking at the image size, the function call, and still not solving it.</p>
+<p>Ass, peeked my code for a second, and she pointed out that the problem is the Escape character.  </p>
+<p>The complete code as below…</p>
+<pre><code>import cv2
+img = cv2.imread(&quot;.\img\\a100366.jpg&quot;)
+cv2.imshow(&quot;image&quot;,img)
+print img.shape
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+</code></pre><p>>_&lt;<br>It’s been a while since my last coding…</p>
+<p><a href="http://www.docs.opencv.org/3.1.0/d6/d00/tutorial_py_root.html" target="_blank" rel="external">http://www.docs.opencv.org/3.1.0/d6/d00/tutorial_py_root.html</a></p>
+<p>I start following the tutorial in the opencv documentation.</p>
+<h4 id="Change-Color-Space"><a href="#Change-Color-Space" class="headerlink" title="Change Color Space"></a><strong>Change Color Space</strong></h4><p>The converting funtion as below.</p>
+<pre><code>cv2.cvtColor(input_image, flag)
+</code></pre><p>The tutorial shows a code to display all the possible input for the flag parameter here as below.</p>
+<pre><code>import cv2
+flags = [i for i in dir(cv2) if i.startswith(&apos;COLOR_&apos;)]
+print flags
+</code></pre><p>And the RGB to HSV flag is COLOR_BGR2HSV. The converting code is as below.</p>
+<pre><code>hsvImg = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+</code></pre><p>To be continue…</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://www.yimou.me/2016/12/10/Hello/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -403,17 +562,24 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -460,17 +626,6 @@
   <span class="author" itemprop="copyrightHolder">Yi Mou</span>
 </div>
 
-
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
-
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
 
 
         

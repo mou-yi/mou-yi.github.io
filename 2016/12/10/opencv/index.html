@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="regular,welcome,first time," />
+  <meta name="keywords" content="Opencv,Image Analysis,Notes,Color Space,RGB,HSV," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="Hello World!">
+<meta name="description" content="Environment: Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)
+I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello">
-<meta property="og:url" content="http://www.yimou.me/2016/12/10/Hello/index.html">
+<meta property="og:title" content="Try out Opencv and some notes">
+<meta property="og:url" content="http://www.yimou.me/2016/12/10/opencv/index.html">
 <meta property="og:site_name" content="Yi Mou">
-<meta property="og:description" content="Hello World!">
-<meta property="og:updated_time" content="2016-12-09T20:41:21.950Z">
+<meta property="og:description" content="Environment: Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)
+I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes">
+<meta property="og:updated_time" content="2016-12-10T15:16:57.850Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello">
-<meta name="twitter:description" content="Hello World!">
+<meta name="twitter:title" content="Try out Opencv and some notes">
+<meta name="twitter:description" content="Environment: Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)
+I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes">
 
 
 
@@ -125,7 +128,7 @@
 
 
 
-  <title> Hello | Yi Mou </title>
+  <title> Try out Opencv and some notes | Yi Mou </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -256,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.yimou.me/2016/12/10/Hello/">
+  <link itemprop="mainEntityOfPage" href="http://www.yimou.me/2016/12/10/opencv/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Yi Mou">
@@ -280,7 +283,7 @@
             
             
               
-                Hello
+                Try out Opencv and some notes
               
             
           </h1>
@@ -293,7 +296,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T03:29:24+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T18:18:30+08:00">
                 2016-12-10
               </time>
             
@@ -303,6 +306,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Quantitative-Analysis/" itemprop="url" rel="index">
+                    <span itemprop="name">Quantitative Analysis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -329,7 +350,31 @@
       
 
       
-        <p>Hello World!</p>
+        <p><strong>Environment:</strong> Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)</p>
+<p>I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes up(unlikely).</p>
+<p>I used Opencv once I was a undergraduate in the class of Computer Graphics. I think it is kind of a tradition that Professor Liu introduced Lena as the standard processing image to us. I saw a news a while ago that Lena is actually a senior lady now.</p>
+<p>Anyway…</p>
+<p>I start with display an image with opencv. The error I occured is the Escape Character. The name of the image is a1003366.jpg in a subfolder, so I put “....\a.jpg” as the parameter. It gives error. I switched to another picture, HKnight.jpg which I took last year in a night of Hong Kong. It worked well. I thought it might be the problem of the image size, may be the size of the a1003366.jpg is too large. And I start looking at the image size, the function call, and still not solving it.</p>
+<p>Ass, peeked my code for a second, and she pointed out that the problem is the Escape character.  </p>
+<p>The complete code as below…</p>
+<pre><code>import cv2
+img = cv2.imread(&quot;.\img\\a100366.jpg&quot;)
+cv2.imshow(&quot;image&quot;,img)
+print img.shape
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+</code></pre><p>>_&lt;<br>It’s been a while since my last coding…</p>
+<p><a href="http://www.docs.opencv.org/3.1.0/d6/d00/tutorial_py_root.html" target="_blank" rel="external">http://www.docs.opencv.org/3.1.0/d6/d00/tutorial_py_root.html</a></p>
+<p>I start following the tutorial in the opencv documentation.</p>
+<h4 id="Change-Color-Space"><a href="#Change-Color-Space" class="headerlink" title="Change Color Space"></a><strong>Change Color Space</strong></h4><p>The converting funtion as below.</p>
+<pre><code>cv2.cvtColor(input_image, flag)
+</code></pre><p>The tutorial shows a code to display all the possible input for the flag parameter here as below.</p>
+<pre><code>import cv2
+flags = [i for i in dir(cv2) if i.startswith(&apos;COLOR_&apos;)]
+print flags
+</code></pre><p>And the RGB to HSV flag is COLOR_BGR2HSV. The converting code is as below.</p>
+<pre><code>hsvImg = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+</code></pre><p>To be continue…</p>
 
       
     </div>
@@ -353,11 +398,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/regular/" rel="tag"># regular</a>
+            <a href="/tags/Opencv/" rel="tag"># Opencv</a>
           
-            <a href="/tags/welcome/" rel="tag"># welcome</a>
+            <a href="/tags/Image-Analysis/" rel="tag"># Image Analysis</a>
           
-            <a href="/tags/first-time/" rel="tag"># first time</a>
+            <a href="/tags/Notes/" rel="tag"># Notes</a>
+          
+            <a href="/tags/Color-Space/" rel="tag"># Color Space</a>
+          
+            <a href="/tags/RGB/" rel="tag"># RGB</a>
+          
+            <a href="/tags/HSV/" rel="tag"># HSV</a>
           
         </div>
       
@@ -366,15 +417,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/12/10/Hello/" rel="next" title="Hello">
+                <i class="fa fa-chevron-left"></i> Hello
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/10/opencv/" rel="prev" title="Try out Opencv and some notes">
-                Try out Opencv and some notes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -421,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -475,6 +535,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Change-Color-Space"><span class="nav-number">1.</span> <span class="nav-text">Change Color Space</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
