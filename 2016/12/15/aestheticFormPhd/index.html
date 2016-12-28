@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Opencv,Image Analysis,Notes,Color Space,RGB,HSV," />
+  <meta name="keywords" content="美学 Aesthetics,视觉形式 Visual Form,博士论文 Doctoral Dissertation," />
 
 
 
@@ -84,21 +84,16 @@
 
 
 
-<meta name="description" content="Environment: Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)
-I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes">
+<meta name="description" content="Abstract of the original paper:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Try out Opencv and some notes">
-<meta property="og:url" content="http://www.yimou.me/2016/12/10/opencv/index.html">
+<meta property="og:title" content="Notes on "视觉形式的美学研究"">
+<meta property="og:url" content="http://www.yimou.me/2016/12/15/aestheticFormPhd/index.html">
 <meta property="og:site_name" content="Yi Mou">
-<meta property="og:description" content="Environment: Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)
-I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes">
-<meta property="og:image" content="http://yimou.me/images/lena.png">
-<meta property="og:updated_time" content="2016-12-20T10:27:49.877Z">
+<meta property="og:description" content="Abstract of the original paper:">
+<meta property="og:updated_time" content="2016-12-15T16:49:36.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Try out Opencv and some notes">
-<meta name="twitter:description" content="Environment: Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)
-I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes">
-<meta name="twitter:image" content="http://yimou.me/images/lena.png">
+<meta name="twitter:title" content="Notes on "视觉形式的美学研究"">
+<meta name="twitter:description" content="Abstract of the original paper:">
 
 
 
@@ -130,7 +125,7 @@ I choose 32-bit environment for compatibility reason, I might change to 64-bit i
 
 
 
-  <title> Try out Opencv and some notes | Yi Mou </title>
+  <title> Notes on "视觉形式的美学研究" | Yi Mou </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -261,7 +256,7 @@ I choose 32-bit environment for compatibility reason, I might change to 64-bit i
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.yimou.me/2016/12/10/opencv/">
+  <link itemprop="mainEntityOfPage" href="http://www.yimou.me/2016/12/15/aestheticFormPhd/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Yi Mou">
@@ -285,7 +280,7 @@ I choose 32-bit environment for compatibility reason, I might change to 64-bit i
             
             
               
-                Try out Opencv and some notes
+                Notes on "视觉形式的美学研究"
               
             
           </h1>
@@ -298,8 +293,8 @@ I choose 32-bit environment for compatibility reason, I might change to 64-bit i
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T18:18:30+08:00">
-                2016-12-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-15T13:25:51+08:00">
+                2016-12-15
               </time>
             
 
@@ -317,8 +312,8 @@ I choose 32-bit environment for compatibility reason, I might change to 64-bit i
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Quantitative-Analysis/" itemprop="url" rel="index">
-                    <span itemprop="name">Quantitative Analysis</span>
+                  <a href="/categories/Philosophy/" itemprop="url" rel="index">
+                    <span itemprop="name">Philosophy</span>
                   </a>
                 </span>
 
@@ -352,38 +347,7 @@ I choose 32-bit environment for compatibility reason, I might change to 64-bit i
       
 
       
-        <p><strong>Environment:</strong> Windows 7(64bit), Python 2.7 (32bit), Numpy 1.8.1 (32bit), Opencv 3.1.0 (python x86)</p>
-<p>I choose 32-bit environment for compatibility reason, I might change to 64-bit if the calculation goes up(unlikely).</p>
-<p>I used Opencv once I was a undergraduate in the class of Computer Graphics. I think it is kind of a tradition that Professor Liu introduced Lena as the standard processing image to us. I saw a news a while ago that Lena is actually a senior lady now.</p>
-<p><img src="http://yimou.me/images/lena.png" alt="&quot;Lena&quot;"></p>
-<p>Anyway…</p>
-<p>I start with display an image with opencv. The error I occured is the Escape Character. The name of the image is a1003366.jpg in a subfolder, so I put “....\a.jpg” as the parameter. It gives error. I switched to another picture, HKnight.jpg which I took last year in a night of Hong Kong. It worked well. I thought it might be the problem of the image size, may be the size of the a1003366.jpg is too large. And I start looking at the image size, the function call, and still not solving it.</p>
-<p>PMZ, peeked my code for a second, and she pointed out that the problem is the Escape character.  </p>
-<p>The complete code as below…</p>
-<pre><code>import cv2
-img = cv2.imread(&quot;.\img\\a100366.jpg&quot;)
-cv2.imshow(&quot;image&quot;,img)
-print img.shape
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-</code></pre><p>>_&lt;<br>It’s been a while since my last coding…</p>
-<p><a href="http://www.docs.opencv.org/3.1.0/d6/d00/tutorial_py_root.html" target="_blank" rel="external">http://www.docs.opencv.org/3.1.0/d6/d00/tutorial_py_root.html</a></p>
-<p>I start following the tutorial in the opencv documentation.</p>
-<h4 id="Change-Color-Space"><a href="#Change-Color-Space" class="headerlink" title="Change Color Space"></a><strong>Change Color Space</strong></h4><p>The converting funtion as below.</p>
-<pre><code>cv2.cvtColor(input_image, flag)
-</code></pre><p>The tutorial shows a code to display all the possible input for the flag parameter here as below.</p>
-<pre><code>import cv2
-flags = [i for i in dir(cv2) if i.startswith(&apos;COLOR_&apos;)]
-print flags
-</code></pre><p>And the RGB to HSV flag is COLOR_BGR2HSV. The converting code is as below.</p>
-<p>  hsvImg = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)</p>
-<h4 id="Basic-Operations-On-images"><a href="#Basic-Operations-On-images" class="headerlink" title="Basic Operations On images"></a><strong>Basic Operations On images</strong></h4><p>For Numpy library, it is optimized for array calculation instead of single pixel calculation.</p>
-<pre><code>img.dtype
-&gt;&gt;unit8
-</code></pre><p>The image type is unit8. Which is unsigned char. The value range is</p>
-<p> 0 ~ 2^8 -1 which is 0 ~ 255.</p>
-<p>To be continue…</p>
-
+        <h3 id="Abstract-of-the-original-paper"><a href="#Abstract-of-the-original-paper" class="headerlink" title="Abstract of the original paper:"></a>Abstract of the original paper:</h3>
       
     </div>
 
@@ -406,17 +370,11 @@ print flags
       
         <div class="post-tags">
           
-            <a href="/tags/Opencv/" rel="tag"># Opencv</a>
+            <a href="/tags/美学-Aesthetics/" rel="tag"># 美学 Aesthetics</a>
           
-            <a href="/tags/Image-Analysis/" rel="tag"># Image Analysis</a>
+            <a href="/tags/视觉形式-Visual-Form/" rel="tag"># 视觉形式 Visual Form</a>
           
-            <a href="/tags/Notes/" rel="tag"># Notes</a>
-          
-            <a href="/tags/Color-Space/" rel="tag"># Color Space</a>
-          
-            <a href="/tags/RGB/" rel="tag"># RGB</a>
-          
-            <a href="/tags/HSV/" rel="tag"># HSV</a>
+            <a href="/tags/博士论文-Doctoral-Dissertation/" rel="tag"># 博士论文 Doctoral Dissertation</a>
           
         </div>
       
@@ -425,8 +383,8 @@ print flags
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/10/Hello/" rel="next" title="Hello">
-                <i class="fa fa-chevron-left"></i> Hello
+              <a href="/2016/12/14/virtualStar/" rel="next" title="Notes on "虚拟明星：建构电影明星研究新视角"">
+                <i class="fa fa-chevron-left"></i> Notes on "虚拟明星：建构电影明星研究新视角"
               </a>
             
           </div>
@@ -434,10 +392,6 @@ print flags
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/11/phi-space/" rel="prev" title="Notes on “当代空间批判理论的四个主题”">
-                Notes on “当代空间批判理论的四个主题” <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,7 +511,7 @@ print flags
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Change-Color-Space"><span class="nav-number">1.</span> <span class="nav-text">Change Color Space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic-Operations-On-images"><span class="nav-number">2.</span> <span class="nav-text">Basic Operations On images</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract-of-the-original-paper"><span class="nav-number">1.</span> <span class="nav-text">Abstract of the original paper:</span></a></li></ol></div>
             
 
           </div>
